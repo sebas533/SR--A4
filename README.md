@@ -1,20 +1,19 @@
 # 🛡️ SR-A4 | Auditoría y Hardening de Infraestructura de Red
 
+## 🎥 Demostración en video
+
+Se incluye una demostración audiovisual del proyecto donde se presenta el entorno de trabajo y el desarrollo de la infraestructura implementada.
+
 <p align="center">
-  <img src="a4img/Topologia.png" width="900" alt="Topología de infraestructura de red">
+  <a href="https://www.youtube.com/watch?v=YMaObqGHV1g">
+    <img src="https://img.youtube.com/vi/YMaObqGHV1g/maxresdefault.jpg" width="850" alt="Demostración del proyecto SR-A4">
+  </a>
 </p>
 
 <p align="center">
-  <b>Auditoría de seguridad, análisis de configuraciones y endurecimiento de dispositivos de red.</b>
-  <br>
-  Implementación y validación de medidas de seguridad en un entorno virtualizado mediante GNS3.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Proyecto-SR--A4-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Enfoque-Network%20Hardening-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Entorno-GNS3-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Documentación-GitHub-black?style=for-the-badge&logo=github">
+  <a href="https://youtu.be/YMaObqGHV1g">
+    <img src="https://img.shields.io/badge/▶_VER_DEMOSTRACIÓN-YouTube-red?style=for-the-badge&logo=youtube">
+  </a>
 </p>
 
 ---
@@ -295,24 +294,6 @@ El directorio `configs/` contiene los archivos de configuración utilizados dura
 ### Scripts
 
 El directorio `scripts/` está destinado a los comandos y procedimientos automatizados utilizados durante la implementación.
-
----
-
-## 🎥 Demostración en video
-
-Se incluye una demostración audiovisual del proyecto donde se presenta el entorno de trabajo y el desarrollo de la infraestructura implementada.
-
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=YMaObqGHV1g">
-    <img src="https://img.youtube.com/vi/YMaObqGHV1g/maxresdefault.jpg" width="850" alt="Demostración del proyecto SR-A4">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://youtu.be/YMaObqGHV1g">
-    <img src="https://img.shields.io/badge/▶_VER_DEMOSTRACIÓN-YouTube-red?style=for-the-badge&logo=youtube">
-  </a>
-</p>
 
 ---
 
