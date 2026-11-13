@@ -1,0 +1,451 @@
+(venv) ubuntu@ubuntu:~$ cat informes/informe_apply_*.txt
+======================================================================
+INFORME DE HARDENING CIS
+Fecha y hora: 2026-11-13 20:00:59
+Modo: APLICAR REGLAS + INFORME POSTUMO
+======================================================================
+
+Equipo: R1-2168 (172.21.68.1) - tipo: router
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+COMANDOS APLICADOS:
+    (ninguno, ya cumplia todo)
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+Equipo: SW-2168 (172.21.68.254) - tipo: switch
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [NO CUMPLE] R04 Exec-timeout de 5 min en consola y vty
+             pendiente: line con 0
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [NO CUMPLE] R07 Servicio PAD deshabilitado (no service pad)
+             pendiente: no service pad
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 6/8 (75%)
+
+COMANDOS APLICADOS:
+    line con 0
+    exec-timeout 5 0
+    no service pad
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 8/8 (100%)
+
+Equipo: FortiGate-2168 (192.168.42.105) - tipo: firewall
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] F01 FortiGate: admintimeout de 5 min o menos
+  [NO CUMPLE] F02 FortiGate: bloqueo tras 3 intentos fallidos (15 min)
+             pendiente: umbral=3, duracion=300
+  [NO CUMPLE] F03 FortiGate: banner previo al login activado
+             pendiente: pre-login-banner desactivado
+  [CUMPLE   ] F04 FortiGate: politica de contrasenas activa
+  [NO CUMPLE] F05 FortiGate: sin HTTP/Telnet/SSH/HTTPS en administracion (WAN)
+             pendiente: port1 -> allowaccess ping
+  [CUMPLE   ] F06 FortiGate: sin TLS 1.0/1.1 en administracion web
+  Cumplimiento: 3/6 (50%)
+
+COMANDOS APLICADOS:
+    config system global
+    set admin-lockout-threshold 3
+    set admin-lockout-duration 900
+    end
+    config system global
+    set pre-login-banner enable
+    end
+    config system interface
+    edit "port1"
+    set allowaccess ping
+    next
+    end
+
+ESTADO FINAL (Fortigate):
+  NOTA: La conexion SSH se cerró al aplicar la regla de seguridad WAN (F05).
+  Los comandos se enviaron correctamente. Verifica manualmente en la consola del equipo.
+======================================================================
+INFORME DE HARDENING CIS
+Fecha y hora: 2026-11-13 20:27:50
+Modo: APLICAR REGLAS + INFORME POSTUMO
+======================================================================
+
+Equipo: R1-2168 (172.21.68.1) - tipo: router
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+COMANDOS APLICADOS:
+    (ninguno, ya cumplia todo)
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+Equipo: SW-2168 (172.21.68.254) - tipo: switch
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 8/8 (100%)
+
+COMANDOS APLICADOS:
+    (ninguno, ya cumplia todo)
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 8/8 (100%)
+
+Equipo: FortiGate-2168 (192.168.42.105) - tipo: firewall
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] F01 FortiGate: admintimeout de 5 min o menos
+  [CUMPLE   ] F02 FortiGate: bloqueo tras 3 intentos fallidos (15 min)
+  [CUMPLE   ] F03 FortiGate: banner previo al login activado
+  [CUMPLE   ] F04 FortiGate: politica de contrasenas activa
+  [NO CUMPLE] F05 FortiGate: sin HTTP/Telnet/SSH/HTTPS en administracion (WAN)
+             pendiente: port1 -> allowaccess ping
+  [CUMPLE   ] F06 FortiGate: sin TLS 1.0/1.1 en administracion web
+  Cumplimiento: 5/6 (83%)
+
+COMANDOS APLICADOS:
+    config system interface
+    edit "port1"
+    set allowaccess ping
+    next
+    end
+
+ESTADO FINAL (Fortigate):
+  NOTA: La conexion SSH se cerró al aplicar la regla de seguridad WAN (F05).
+  Los comandos se enviaron correctamente. Verifica manualmente en la consola del equipo.
+======================================================================
+INFORME DE HARDENING CIS
+Fecha y hora: 2026-11-13 20:33:42
+Modo: APLICAR REGLAS + INFORME POSTUMO
+======================================================================
+
+Equipo: R1-2168 (172.21.68.1) - tipo: router
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+COMANDOS APLICADOS:
+    (ninguno, ya cumplia todo)
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+Equipo: SW-2168 (172.21.68.254) - tipo: switch
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 8/8 (100%)
+
+COMANDOS APLICADOS:
+    (ninguno, ya cumplia todo)
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 8/8 (100%)
+
+Equipo: FortiGate-2168 (192.168.42.105) - tipo: firewall
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] F01 FortiGate: admintimeout de 5 min o menos
+  [CUMPLE   ] F02 FortiGate: bloqueo tras 3 intentos fallidos (15 min)
+  [CUMPLE   ] F03 FortiGate: banner previo al login activado
+  [CUMPLE   ] F04 FortiGate: politica de contrasenas activa
+  [NO CUMPLE] F05 FortiGate: sin HTTP/Telnet/SSH/HTTPS en administracion (WAN)
+             pendiente: port1 -> allowaccess ping
+  [CUMPLE   ] F06 FortiGate: sin TLS 1.0/1.1 en administracion web
+  Cumplimiento: 5/6 (83%)
+
+COMANDOS APLICADOS:
+    config system interface
+    edit "port1"
+    set allowaccess ping
+    next
+    end
+
+ESTADO FINAL (Fortigate):
+  NOTA: La conexion SSH se cerró al aplicar la regla de seguridad WAN (F05).
+  Los comandos se enviaron correctamente. Verifica manualmente en la consola del equipo.
+======================================================================
+INFORME DE HARDENING CIS
+Fecha y hora: 2026-11-13 20:44:45
+Modo: APLICAR REGLAS + INFORME POSTUMO
+======================================================================
+
+Equipo: R1-2168 (172.21.68.1) - tipo: router
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [NO CUMPLE] R07 Servicio PAD deshabilitado (no service pad)
+             pendiente: no service pad
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 9/10 (90%)
+
+COMANDOS APLICADOS:
+    no service pad
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+Equipo: SW-2168 (172.21.68.254) - tipo: switch
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [NO CUMPLE] R04 Exec-timeout de 5 min en consola y vty
+             pendiente: line con 0
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 7/8 (88%)
+
+COMANDOS APLICADOS:
+    line con 0
+    exec-timeout 5 0
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 8/8 (100%)
+
+Equipo: FortiGate-2168 (192.168.42.105) - tipo: firewall
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] F01 FortiGate: admintimeout de 5 min o menos
+  [CUMPLE   ] F02 FortiGate: bloqueo tras 3 intentos fallidos (15 min)
+  [CUMPLE   ] F03 FortiGate: banner previo al login activado
+  [CUMPLE   ] F04 FortiGate: politica de contrasenas activa
+  [NO CUMPLE] F05 FortiGate: sin HTTP/Telnet/SSH/HTTPS en administracion (WAN)
+             pendiente: port1 -> allowaccess ping
+  [CUMPLE   ] F06 FortiGate: sin TLS 1.0/1.1 en administracion web
+  Cumplimiento: 5/6 (83%)
+
+COMANDOS APLICADOS:
+    config system interface
+    edit "port1"
+    set allowaccess ping
+    next
+    end
+
+ESTADO FINAL (Fortigate):
+  NOTA: La conexion SSH se cerró al aplicar la regla de seguridad WAN (F05).
+  Los comandos se enviaron correctamente. Verifica manualmente en la consola del equipo.
+======================================================================
+INFORME DE HARDENING CIS
+Fecha y hora: 2026-11-13 20:50:47
+Modo: APLICAR REGLAS + INFORME POSTUMO
+======================================================================
+
+Equipo: R1-2168 (172.21.68.1) - tipo: router
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [NO CUMPLE] R07 Servicio PAD deshabilitado (no service pad)
+             pendiente: no service pad
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 9/10 (90%)
+
+COMANDOS APLICADOS:
+    no service pad
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  [CUMPLE   ] R09 Source routing deshabilitado (no ip source-route)
+  [CUMPLE   ] R10 Proxy ARP deshabilitado en interfaces
+  Cumplimiento: 10/10 (100%)
+
+Equipo: SW-2168 (172.21.68.254) - tipo: switch
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [NO CUMPLE] R04 Exec-timeout de 5 min en consola y vty
+             pendiente: line con 0
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 7/8 (88%)
+
+COMANDOS APLICADOS:
+    line con 0
+    exec-timeout 5 0
+
+ESTADO FINAL (informe postumo):
+  [CUMPLE   ] R01 Contrasena enable con hash (enable secret)
+  [CUMPLE   ] R02 Cifrado de contrasenas (service password-encryption)
+  [CUMPLE   ] R03 Solo SSH en lineas vty (transport input ssh)
+  [CUMPLE   ] R04 Exec-timeout de 5 min en consola y vty
+  [CUMPLE   ] R05 Banner de aviso legal
+  [CUMPLE   ] R06 Servidor HTTP/HTTPS deshabilitado
+  [CUMPLE   ] R07 Servicio PAD deshabilitado (no service pad)
+  [CUMPLE   ] R08 Timestamps en logs y debug (datetime msec)
+  Cumplimiento: 8/8 (100%)
+
+Equipo: FortiGate-2168 (192.168.42.105) - tipo: firewall
+----------------------------------------------------------------------
+ESTADO INICIAL (antes de aplicar):
+  [CUMPLE   ] F01 FortiGate: admintimeout de 5 min o menos
+  [CUMPLE   ] F02 FortiGate: bloqueo tras 3 intentos fallidos (15 min)
+  [CUMPLE   ] F03 FortiGate: banner previo al login activado
+  [CUMPLE   ] F04 FortiGate: politica de contrasenas activa
+  [NO CUMPLE] F05 FortiGate: sin HTTP/Telnet/SSH/HTTPS en administracion (WAN)
+             pendiente: port1 -> allowaccess ping
+  [CUMPLE   ] F06 FortiGate: sin TLS 1.0/1.1 en administracion web
+  Cumplimiento: 5/6 (83%)
+
+COMANDOS APLICADOS:
+    config system interface
+    edit "port1"
+    set allowaccess ping
+    next
+    end
+
+ESTADO FINAL (Fortigate):
+  NOTA: La conexion SSH se cerró al aplicar la regla de seguridad WAN (F05).
+  Los comandos se enviaron correctamente. Verifica manualmente en la consola del equipo.
+(venv) ubuntu@ubuntu:~$
