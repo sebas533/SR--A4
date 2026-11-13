@@ -1,23 +1,5 @@
 # 🛡️ SR-A4 | Auditoría y Hardening de Infraestructura de Red
 
-<p align="center">
-  <img src="a4img/Topologia.png" width="850" alt="Topología de red">
-</p>
-
-<p align="center">
-  <b>Proyecto de auditoría, evaluación y endurecimiento de dispositivos de red.</b>
-  <br>
-  Implementación de medidas de seguridad, revisión de configuraciones y validación de controles.
-</p>
-
-<p align="center">
-  ![Status](https://img.shields.io/badge/Estado-Completado-success?style=for-the-badge)
-  ![Platform](https://img.shields.io/badge/Plataforma-Redes-blue?style=for-the-badge)
-  ![Security](https://img.shields.io/badge/Enfoque-Hardening-red?style=for-the-badge)
-  ![GitHub](https://img.shields.io/badge/GitHub-sebas533-black?style=for-the-badge&logo=github)
-</p>
-
----
 
 ## 📑 Índice
 
