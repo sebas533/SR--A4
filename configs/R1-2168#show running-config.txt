@@ -1,0 +1,135 @@
+R1-2168#show running-config
+Building configuration...
+
+Current configuration : 1982 bytes
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R1-2168
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 16384 informational
+enable secret 5 $1$tGrH$3uQ/F/EIqvgw5zhrTIGnw.
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local
+!
+!
+!
+!
+!
+aaa session-id common
+no ip source-route
+no ip gratuitous-arps
+no ip icmp rate-limit unreachable
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip domain name lab2168.local
+ip cef
+no ipv6 cef
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$1sOc$fUim6zSmdMQYAWnS42a.v/
+!
+!
+!
+!
+!
+ip tcp synwait-time 5
+ip ssh time-out 60
+ip ssh version 2
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ description TRANSIT-FortiGate
+ ip address 10.21.68.2 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ duplex full
+!
+interface FastEthernet1/0
+ description LAN-Switch
+ ip address 172.21.68.1 255.255.255.0
+ no ip proxy-arp
+ speed auto
+ duplex auto
+!
+interface FastEthernet1/1
+ no ip address
+ shutdown
+ speed auto
+ duplex auto
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip route 0.0.0.0 0.0.0.0 10.21.68.1
+!
+ip access-list standard ACL-MGMT
+ permit 172.21.68.0 0.0.0.255
+ deny   any log
+!
+logging host 172.21.68.68
+no cdp run
+!
+snmp-server group V3GRP v3 priv
+!
+!
+!
+control-plane
+!
+banner motd ^C========================================  ACCESO AUTORIZADO SOLAMENTE  Matricula: 2168 | Lab CIS Benchmark  Actividad monitoreada y registrada========================================^C
+!
+line con 0
+ exec-timeout 5 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line vty 0 4
+ access-class ACL-MGMT in
+ exec-timeout 5 0
+ transport input ssh
+!
+ntp authentication-key 1 md5 000A07160F5E12545E7714 7
+ntp authenticate
+ntp trusted-key 1
+ntp server 172.21.68.68 key 1
+!
+end
